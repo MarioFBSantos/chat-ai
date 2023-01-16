@@ -1,28 +1,33 @@
 <template>
-  <!-- <img src="images/landing.jpg" class="image" loading="lazy" draggable="false" /> -->
-  <div class="layout q-pa-lg">
-    <div><Info class="info" /></div>
-    <div class="q-py-lg">
-      <Chat class="chat" />
-    </div>
+  <div class="layout q-mx-lg">
+    <div><Info class="info q-mx-lg" /></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Chat from '../components/Chat.vue';
+import { defineComponent, ref } from 'vue';
 import Info from '../components/Infos.vue';
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { Chat, Info },
+  components: { Info },
   setup() {
-    return {};
+    const openModal = ref(false);
+    return {
+      openModal,
+    };
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
 img {
   max-width: 100%;
   display: block;
@@ -30,7 +35,7 @@ img {
   user-select: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1400px) {
   .layout {
     display: flex;
     flex-direction: column;
